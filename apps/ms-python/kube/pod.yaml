@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kidboo-python-app
+  namespace: apps
+spec:
+  containers:
+  - name: kidboo
+    image: aldry1303/app-kidboo:1.0.2
+    ports:
+    - containerPort: 5000
