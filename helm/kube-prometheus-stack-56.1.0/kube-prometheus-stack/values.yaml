@@ -69,8 +69,8 @@ defaultRules:
     node: true
     nodeExporterAlerting: true
     nodeExporterRecording: true
-    prometheus: true
-    prometheusOperator: true
+    prometheus: false
+    prometheusOperator: false
     windows: true
 
   ## Reduce app namespace alert scope
@@ -2720,10 +2720,11 @@ prometheusOperator:
 prometheus:
   enabled: true
   prometheusSpec:
-  additionalScrapeConfigs:
-  - job_name: 'otel-monitoring'
-    static_configs:
-      - targets: ['10.244.0.196:9617']
+    additionalScrapeConfigs:
+    - job_name: 'pihole'
+      static_configs:
+        - targets: ['10.244.0.196:9617']
+
 
   ## Toggle prometheus into agent mode
   ## Note many of features described below (e.g. rules, query, alerting, remote read, thanos) will not work in agent mode.

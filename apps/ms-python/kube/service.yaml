@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kidboo-python-service
+  namespace: apps
+spec:
+  selector:
+    app: kidboo-python-app
+  ports:
+  - name: kidboo-python-app
+    protocol: TCP
+    port: 5000
+    targetPort: 5000
